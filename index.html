@@ -1,0 +1,1478 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CyberSec Academy - Kelas Cybersecurity Profesional</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Reset dan Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        :root {
+            --primary-blue: #1e3a8a;
+            --secondary-blue: #3b82f6;
+            --light-blue: #dbeafe;
+            --accent-blue: #60a5fa;
+            --white: #ffffff;
+            --gray-light: #f8fafc;
+            --gray: #64748b;
+            --gray-dark: #334155;
+            --red: #ef4444;
+            --green: #10b981;
+            --yellow: #f59e0b;
+        }
+        
+        body {
+            line-height: 1.6;
+            color: var(--gray-dark);
+            background-color: var(--white);
+            overflow-x: hidden;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        section {
+            padding: 80px 0;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 100%);
+            color: var(--white);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        header.scrolled {
+            padding: 0.5rem 0;
+            background: rgba(30, 58, 138, 0.95);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo i {
+            margin-right: 10px;
+            color: var(--light-blue);
+        }
+        
+        .logo span {
+            color: var(--light-blue);
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-menu li {
+            margin-left: 2rem;
+        }
+        
+        .nav-menu a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+        }
+        
+        .nav-menu a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--light-blue);
+            transition: width 0.3s;
+        }
+        
+        .nav-menu a:hover:after {
+            width: 100%;
+        }
+        
+        .mobile-menu {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(30, 58, 138, 0.9), rgba(59, 130, 246, 0.8)), url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            color: var(--white);
+            padding: 180px 0 100px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            animation: fadeInUp 1s ease;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: var(--white);
+            color: var(--primary-blue);
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: 2px solid var(--white);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn:hover {
+            background: transparent;
+            color: var(--white);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
+            margin-left: 15px;
+        }
+        
+        .btn-secondary:hover {
+            background: var(--white);
+            color: var(--primary-blue);
+        }
+        
+        /* Specializations Section */
+        .specializations {
+            padding: 100px 0;
+            background-color: var(--gray-light);
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            width: 70px;
+            height: 4px;
+            background: var(--secondary-blue);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+        
+        .section-title p {
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .spec-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .spec-tab {
+            padding: 12px 25px;
+            background: var(--white);
+            border: 2px solid var(--secondary-blue);
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 600;
+            color: var(--secondary-blue);
+            transition: all 0.3s;
+        }
+        
+        .spec-tab.active {
+            background: var(--secondary-blue);
+            color: var(--white);
+        }
+        
+        .spec-tab:hover:not(.active) {
+            background: var(--light-blue);
+        }
+        
+        .spec-content {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        .spec-content.active {
+            display: block;
+        }
+        
+        .spec-description {
+            text-align: center;
+            margin-bottom: 3rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .tier-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .tier-card {
+            background: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid #e2e8f0;
+            position: relative;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        
+        .tier-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .tier-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .tier-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        
+        .beginner .tier-badge {
+            background: var(--green);
+            color: white;
+        }
+        
+        .intermediate .tier-badge {
+            background: var(--yellow);
+            color: white;
+        }
+        
+        .advanced .tier-badge {
+            background: var(--red);
+            color: white;
+        }
+        
+        .tier-header {
+            padding: 1.5rem;
+            text-align: center;
+            border-bottom: 1px solid #f1f5f9;
+        }
+        
+        .tier-header h3 {
+            font-size: 1.5rem;
+            color: var(--primary-blue);
+            margin-bottom: 0.5rem;
+        }
+        
+        .tier-price {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--secondary-blue);
+        }
+        
+        .tier-price span {
+            font-size: 1rem;
+            font-weight: normal;
+            color: var(--gray);
+        }
+        
+        .tier-body {
+            padding: 1.5rem;
+        }
+        
+        .tier-features {
+            list-style: none;
+            margin-bottom: 1.5rem;
+        }
+        
+        .tier-features li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #f1f5f9;
+            display: flex;
+            align-items: center;
+        }
+        
+        .tier-features li:before {
+            content: "✓";
+            color: #10b981;
+            font-weight: bold;
+            margin-right: 10px;
+            min-width: 20px;
+        }
+        
+        .tier-btn {
+            display: block;
+            text-align: center;
+            background: var(--secondary-blue);
+            color: var(--white);
+            padding: 12px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+        
+        .tier-btn:hover {
+            background: var(--primary-blue);
+        }
+        
+        /* About Section */
+        .about {
+            padding: 100px 0;
+            background-color: var(--white);
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-text h3 {
+            font-size: 1.8rem;
+            color: var(--primary-blue);
+            margin-bottom: 1.5rem;
+        }
+        
+        .about-text p {
+            margin-bottom: 1.5rem;
+            color: var(--gray-dark);
+        }
+        
+        .about-stats {
+            display: flex;
+            gap: 20px;
+            margin-top: 2rem;
+        }
+        
+        .stat {
+            text-align: center;
+            flex: 1;
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--secondary-blue);
+            display: block;
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--gray);
+        }
+        
+        .about-image {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        /* Instructor Section */
+        .instructor {
+            padding: 100px 0;
+            background-color: var(--gray-light);
+        }
+        
+        .instructor-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+        
+        .instructor-image {
+            flex: 1;
+            text-align: center;
+        }
+        
+        .instructor-image img {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid var(--white);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .instructor-info {
+            flex: 2;
+        }
+        
+        .instructor-info h3 {
+            font-size: 2rem;
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+        }
+        
+        .instructor-info p {
+            margin-bottom: 1.5rem;
+            color: var(--gray-dark);
+        }
+        
+        .certifications {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 2rem;
+        }
+        
+        .cert-badge {
+            background: var(--white);
+            padding: 10px 15px;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--primary-blue);
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+        }
+        
+        /* FAQ Section */
+        .faq {
+            padding: 100px 0;
+            background-color: var(--white);
+        }
+        
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .faq-item {
+            margin-bottom: 1rem;
+            border: 1px solid #e2e8f0;
+            border-radius: 5px;
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+        
+        .faq-item:hover {
+            border-color: var(--secondary-blue);
+        }
+        
+        .faq-question {
+            padding: 1.5rem;
+            background: var(--gray-light);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+        
+        .faq-question:hover {
+            background: var(--light-blue);
+        }
+        
+        .faq-answer {
+            padding: 0 1.5rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+        
+        .faq-item.active .faq-answer {
+            padding: 1.5rem;
+            max-height: 500px;
+        }
+        
+        /* Contact Section */
+        .contact {
+            padding: 100px 0;
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 100%);
+            color: var(--white);
+        }
+        
+        .contact-container {
+            display: flex;
+            gap: 50px;
+        }
+        
+        .contact-info {
+            flex: 1;
+        }
+        
+        .contact-info h3 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .contact-info p {
+            margin-bottom: 2rem;
+        }
+        
+        .contact-details {
+            list-style: none;
+        }
+        
+        .contact-details li {
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .contact-details li i {
+            margin-right: 10px;
+            font-size: 1.2rem;
+            width: 20px;
+        }
+        
+        .contact-form {
+            flex: 1;
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 10px;
+            color: var(--gray-dark);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+        
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #e2e8f0;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: border 0.3s;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            border-color: var(--secondary-blue);
+            outline: none;
+        }
+        
+        .form-group textarea {
+            height: 120px;
+            resize: vertical;
+        }
+        
+        .submit-btn {
+            background: var(--secondary-blue);
+            color: var(--white);
+            border: none;
+            padding: 12px 30px;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+            width: 100%;
+        }
+        
+        .submit-btn:hover {
+            background: var(--primary-blue);
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--gray-dark);
+            color: var(--white);
+            padding: 50px 0 20px;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-column {
+            flex: 1;
+            min-width: 200px;
+        }
+        
+        .footer-column h4 {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            color: var(--light-blue);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .footer-links a {
+            color: #cbd5e1;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--light-blue);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 1rem;
+        }
+        
+        .social-links a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background: var(--gray);
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            color: var(--white);
+            transition: background 0.3s;
+        }
+        
+        .social-links a:hover {
+            background: var(--secondary-blue);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #475569;
+            color: #94a3b8;
+            font-size: 0.9rem;
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .about-content, .instructor-content, .contact-container {
+                flex-direction: column;
+            }
+            
+            .about-image, .instructor-image {
+                order: -1;
+            }
+            
+            .instructor-image img {
+                width: 250px;
+                height: 250px;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .tier-grid {
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--primary-blue);
+                flex-direction: column;
+                padding: 1rem 0;
+                text-align: center;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            }
+            
+            .nav-menu.active {
+                display: flex;
+            }
+            
+            .nav-menu li {
+                margin: 0.5rem 0;
+            }
+            
+            .mobile-menu {
+                display: block;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .spec-tabs {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .spec-tab {
+                width: 80%;
+                text-align: center;
+            }
+            
+            .about-stats {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header id="header">
+        <div class="container header-container">
+            <div class="logo"><i class="fas fa-shield-alt"></i>CyberSec<span>Academy</span></div>
+            <div class="mobile-menu">☰</div>
+            <ul class="nav-menu">
+                <li><a href="#home">Beranda</a></li>
+                <li><a href="#specializations">Spesialisasi</a></li>
+                <li><a href="#about">Tentang</a></li>
+                <li><a href="#instructor">Instruktur</a></li>
+                <li><a href="#faq">FAQ</a></li>
+                <li><a href="#contact">Kontak</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Beginner to Expert</h1>
+                <p>Pelajari cybersecurity dari dasar hingga mahir dengan kurikulum terstruktur. Kuasai red teaming, blue teaming, dan teknik keamanan siber terkini.</p>
+                <a href="#specializations" class="btn">Lihat Paket Kelas</a>
+                <a href="#contact" class="btn btn-secondary">Konsultasi Gratis</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Specializations Section -->
+    <section class="specializations" id="specializations">
+        <div class="container">
+            <div class="section-title">
+                <h2>Pilih Spesialisasi Anda</h2>
+                <p>Kami menawarkan program khusus untuk setiap bidang cybersecurity dengan level pembelajaran dari pemula hingga ahli.</p>
+            </div>
+            
+            <div class="spec-tabs">
+                <div class="spec-tab active" data-tab="red">Red Teaming</div>
+                <div class="spec-tab" data-tab="blue">Blue Teaming</div>
+                <div class="spec-tab" data-tab="advanced">Black Hat & Advanced</div>
+            </div>
+            
+            <!-- Red Teaming Content -->
+            <div class="spec-content active" id="red-content">
+                <div class="spec-description">
+                    <h3>Red Teaming - Penetration Testing & Ethical Hacking</h3>
+                    <p>Pelajari teknik offensive security untuk mengidentifikasi kerentanan sistem sebelum penyerang nyata melakukannya. Program ini mengajarkan Anda berpikir seperti hacker untuk melindungi sistem dengan lebih efektif.</p>
+                </div>
+                
+                <div class="tier-grid">
+                    <!-- Red Teaming - Beginner -->
+                    <div class="tier-card beginner visible">
+                        <div class="tier-badge">Beginner</div>
+                        <div class="tier-header">
+                            <h3>Red Team #1</h3>
+                            <div class="tier-price">Rp 199.000<span>/bulan</span></div>
+                        </div>
+                        <div class="tier-body">
+                            <ul class="tier-features">
+                                <li>4x Pertemuan Live per Bulan</li>
+                                <li>Dasar-dasar Ethical Hacking</li>
+                                <li>Pengenalan Tools Pentesting</li>
+                                <li>5 E-book Panduan</li>
+                                <li>Lab Virtual Dasar</li>
+                                <li>Sertifikat Penyelesaian</li>
+                                <li>Akses Grup Diskusi</li>
+                            </ul>
+                            <a href="#contact" class="tier-btn">Daftar Sekarang</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Red Teaming - Intermediate -->
+                    <div class="tier-card intermediate visible">
+                        <div class="tier-badge">Middle</div>
+                        <div class="tier-header">
+                            <h3>Red Team #2</h3>
+                            <div class="tier-price">Rp 349.000<span>/bulan</span></div>
+                        </div>
+                        <div class="tier-body">
+                            <ul class="tier-features">
+                                <li>6x Pertemuan Live per Bulan</li>
+                                <li>Penetration Testing Lanjutan</li>
+                                <li>Web Application Security</li>
+                                <li>10 E-book & Video Tutorial</li>
+                                <li>Lab Virtual Menengah</li>
+                                <li>Tools Premium</li>
+                                <li>Sertifikat Practitioner</li>
+                                <li>Mentoring 1-on-1</li>
+                            </ul>
+                            <a href="#contact" class="tier-btn">Daftar Sekarang</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Red Teaming - Advanced -->
+                    <div class="tier-card advanced visible">
+                        <div class="tier-badge">Expert</div>
+                        <div class="tier-header">
+                            <h3>Red Team #3</h3>
+                            <div class="tier-price">Rp 599.000<span>/bulan</span></div>
+                        </div>
+                        <div class="tier-body">
+                            <ul class="tier-features">
+                                <li>8x Pertemuan Live per Bulan</li>
+                                <li>Advanced Penetration Testing</li>
+                                <li>Network & Cloud Security</li>
+                                <li>15 E-book & Video Masterclass</li>
+                                <li>Lab Virtual Lengkap</li>
+                                <li>Tools Enterprise</li>
+                                <li>Sertifikat Expert</li>
+                                <li>Mentoring Intensif</li>
+                                <li>Bimbingan Karir</li>
+                            </ul>
+                            <a href="#contact" class="tier-btn">Daftar Sekarang</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Blue Teaming Content -->
+            <div class="spec-content" id="blue-content">
+                <div class="spec-description">
+                    <h3>Blue Teaming - Defensive Security & Incident Response</h3>
+                    <p>Kembangkan kemampuan defensive security untuk melindungi sistem dari serangan siber. Pelajari teknik monitoring, detection, dan response untuk menjaga keamanan infrastruktur digital.</p>
+                </div>
+                
+                <div class="tier-grid">
+                    <!-- Blue Teaming - Beginner -->
+                    <div class="tier-card beginner">
+                        <div class="tier-badge">Beginner</div>
+                        <div class="tier-header">
+                            <h3>Blue Team #1</h3>
+                            <div class="tier-price">Rp 179.000<span>/bulan</span></div>
+                        </div>
+                        <div class="tier-body">
+                            <ul class="tier-features">
+                                <li>4x Pertemuan Live per Bulan</li>
+                                <li>Dasar-dasar Keamanan Jaringan</li>
+                                <li>Pengenalan SIEM & Monitoring</li>
+                                <li>5 E-book Panduan</li>
+                                <li>Lab Virtual Dasar</li>
+                                <li>Sertifikat Penyelesaian</li>
+                                <li>Akses Grup Diskusi</li>
+                            </ul>
+                            <a href="#contact" class="tier-btn">Daftar Sekarang</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Blue Teaming - Intermediate -->
+                    <div class="tier-card intermediate">
+                        <div class="tier-badge">Middle</div>
+                        <div class="tier-header">
+                            <h3>Blue Team #2</h3>
+                            <div class="tier-price">Rp 329.000<span>/bulan</span></div>
+                        </div>
+                        <div class="tier-body">
+                            <ul class="tier-features">
+                                <li>6x Pertemuan Live per Bulan</li>
+                                <li>Incident Response & Handling</li>
+                                <li>Threat Intelligence</li>
+                                <li>10 E-book & Video Tutorial</li>
+                                <li>Lab Virtual Menengah</li>
+                                <li>Tools Monitoring Premium</li>
+                                <li>Sertifikat Analyst</li>
+                                <li>Mentoring 1-on-1</li>
+                            </ul>
+                            <a href="#contact" class="tier-btn">Daftar Sekarang</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Blue Teaming - Advanced -->
+                    <div class="tier-card advanced">
+                        <div class="tier-badge">Expert</div>
+                        <div class="tier-header">
+                            <h3>Blue Team #3</h3>
+                            <div class="tier-price">Rp 549.000<span>/bulan</span></div>
+                        </div>
+                        <div class="tier-body">
+                            <ul class="tier-features">
+                                <li>8x Pertemuan Live per Bulan</li>
+                                <li>Advanced Threat Hunting</li>
+                                <li>Security Architecture</li>
+                                <li>15 E-book & Video Masterclass</li>
+                                <li>Lab Virtual Lengkap</li>
+                                <li>Tools Enterprise</li>
+                                <li>Sertifikat Expert</li>
+                                <li>Mentoring Intensif</li>
+                                <li>Bimbingan Karir</li>
+                            </ul>
+                            <a href="#contact" class="tier-btn">Daftar Sekarang</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Advanced/Black Hat Content -->
+            <div class="spec-content" id="advanced-content">
+                <div class="spec-description">
+                    <h3>Advanced Cybersecurity & Black Hat</h3>
+                    <p>Program lanjutan untuk profesional yang ingin menguasai teknik cybersecurity tingkat tinggi. Pelajari metode yang digunakan oleh black hat hacker (secara etis) untuk memahami dan mengantisipasi serangan canggih.</p>
+                </div>
+                
+                <div class="tier-grid">
+                    <!-- Advanced - Beginner -->
+                    <div class="tier-card beginner">
+                        <div class="tier-badge">Beginner</div>
+                        <div class="tier-header">
+                            <h3>BlackHat #1</h3>
+                            <div class="tier-price">Rp 249.000<span>/bulan</span></div>
+                        </div>
+                        <div class="tier-body">
+                            <ul class="tier-features">
+                                <li>4x Pertemuan Live per Bulan</li>
+                                <li>Konsep Keamanan Tingkat Lanjut</li>
+                                <li>Reverse Engineering Dasar</li>
+                                <li>5 E-book Panduan</li>
+                                <li>Lab Virtual Dasar</li>
+                                <li>Sertifikat Penyelesaian</li>
+                                <li>Akses Grup Diskusi</li>
+                            </ul>
+                            <a href="#contact" class="tier-btn">Daftar Sekarang</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Advanced - Intermediate -->
+                    <div class="tier-card intermediate">
+                        <div class="tier-badge">Middle</div>
+                        <div class="tier-header">
+                            <h3>BlackHat #2</h3>
+                            <div class="tier-price">Rp 449.000<span>/bulan</span></div>
+                        </div>
+                        <div class="tier-body">
+                            <ul class="tier-features">
+                                <li>6x Pertemuan Live per Bulan</li>
+                                <li>Malware Analysis</li>
+                                <li>Cryptography & Steganography</li>
+                                <li>10 E-book & Video Tutorial</li>
+                                <li>Lab Virtual Menengah</li>
+                                <li>Tools Advanced</li>
+                                <li>Sertifikat Practitioner</li>
+                                <li>Mentoring 1-on-1</li>
+                            </ul>
+                            <a href="#contact" class="tier-btn">Daftar Sekarang</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Advanced - Expert -->
+                    <div class="tier-card advanced">
+                        <div class="tier-badge">Expert</div>
+                        <div class="tier-header">
+                            <h3>BlackHat #3</h3>
+                            <div class="tier-price">Rp 799.000<span>/bulan</span></div>
+                        </div>
+                        <div class="tier-body">
+                            <ul class="tier-features">
+                                <li>8x Pertemuan Live per Bulan</li>
+                                <li>Zero-Day Vulnerability Research</li>
+                                <li>Advanced Persistent Threat (APT)</li>
+                                <li>15 E-book & Video Masterclass</li>
+                                <li>Lab Virtual Lengkap</li>
+                                <li>Tools Enterprise & Custom</li>
+                                <li>Sertifikat Master</li>
+                                <li>Mentoring Intensif</li>
+                                <li>Bimbingan Karir & Networking</li>
+                            </ul>
+                            <a href="#contact" class="tier-btn">Daftar Sekarang</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>Mengapa Memilih CyberSec Academy?</h2>
+                <p>Kami terstruktur, rapih, dan professional.</p>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Learn to Expert</h3>
+                    <p>CyberSec Academy didirikan oleh Hacker dengan pengalaman lebih dari 9 tahun. Metode pembelajaran kami menggabungkan teori mendalam dengan praktik langsung menggunakan tools dan teknik terbaru, dan akan dilakukan dalam lingkungan terkontrol. Setelah menyelesaikan program, Anda akan memiliki keterampilan yang diperlukan untuk bekerja sebagai ethical hacker, security analyst, penetration tester, atau peran keamanan siber lainnya.</p>                    
+                    <div class="about-stats">
+                        <div class="stat">
+                            <span class="stat-number">500+</span>
+                            <span class="stat-label">Project Terselesaikan</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">98%</span>
+                            <span class="stat-label">Tingkat Kepuasan</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">12+</span>
+                            <span class="stat-label">Perusahaan Mitra</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <img src="arch.jpeg" alt="Cybersecurity">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Instructor Section -->
+    <section class="instructor" id="instructor">
+        <div class="container">
+            <div class="instructor-content">
+                <div class="instructor-image">
+                    <img src="yudiardata.jpeg" alt="Instruktur">
+                </div>
+                <div class="instructor-info">
+                    <h3>Yudi Ardata, CEH, CISSP</h3>
+                    <p>Spesialisasinya meliputi penetration testing, vulnerability assessment, incident response, dan security architecture. Yudi Ardata telah membantu ratusan CEO dan PT Besar di Indonesia.</p>
+                    <p>"Tujuan saya adalah membekali setiap siswa dengan keterampilan dan pengetahuan yang diperlukan untuk sukses di dunia cybersecurity yang terus berkembang."</p>
+                    <div class="certifications">
+                        <div class="cert-badge">CEH (Certified Ethical Hacker)</div>
+                        <div class="cert-badge">CISSP (Certified Information Systems Security Professional)</div>
+                        <div class="cert-badge">OSCP (Offensive Security Certified Professional)</div>
+                        <div class="cert-badge">CISM (Certified Information Security Manager)</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq" id="faq">
+        <div class="container">
+            <div class="section-title">
+                <h2>Pertanyaan Umum</h2>
+                <p>Berikut adalah beberapa pertanyaan yang sering diajukan.</p>
+            </div>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Apakah saya perlu memiliki latar belakang IT untuk mengikuti kelas?</span>
+                        <span>+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Tidak perlu. Level Pemula di setiap spesialisasi dirancang khusus untuk peserta tanpa latar belakang IT. Kami akan memulai dari dasar-dasar yang mudah dipahami dan membimbing Anda langkah demi langkah.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Bagaimana metode pembelajarannya?</span>
+                        <span>+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Kelas dilakukan secara live melalui Google Meet dengan instruktur. Setiap sesi mencakup teori, demonstrasi, dan praktik langsung. Anda juga akan mendapatkan akses ke materi tambahan seperti e-book, video, dan lab virtual untuk berlatih.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Apakah sertifikat akan diberikan?</span>
+                        <span>+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Ya, sertifikat dari CyberSec Academy akan diberikan setelah program kelas.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Apakah ada jaminan uang kembali?</span>
+                        <span>+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Tidak ada pengembalian dana.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Bagaimana jika saya melewatkan sesi live?</span>
+                        <span>+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Semua sesi live akan direkam dan dapat diakses kapan saja. Anda juga dapat mengajukan pertanyaan melalui grup diskusi yang disediakan atau selama sesi mentoring.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Apakah tersedia pembayaran cicilan?</span>
+                        <span>+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Ya, kami menawarkan opsi pembayaran cicilan untuk paket Menengah dan Ahli. Silakan hubungi kami untuk informasi lebih lanjut tentang skema cicilan yang tersedia.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Informasi Kontak</h3>
+                    <p>Kami siap membantu Anda memilih paket yang tepat dan menjawab semua pertanyaan tentang program cybersecurity kami.</p>
+                    <ul class="contact-details">
+                        <li><i class="fas fa-envelope"></i> yudiardata@gmail.com</li>
+                        <li><i class="fas fa-phone"></i> +62 819-1503-0270</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Jl. Kartini Pangarangan, Sumenep</li>
+                        <li><i class="fas fa-clock"></i> Senin - Minggu: 09:00 - 18:00 WIB</li>
+                    </ul>
+                </div>
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Nama Lengkap</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Nomor Telepon</label>
+                            <input type="tel" id="phone" name="phone">
+                        </div>
+                        <div class="form-group">
+                            <label for="specialization">Minat Spesialisasi</label>
+                            <select id="specialization" name="specialization">
+                                <option value="">Pilih Spesialisasi</option>
+                                <option value="red-team">Red Teaming</option>
+                                <option value="blue-team">Blue Teaming</option>
+                                <option value="advanced">BlackHat Advanced</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="level">Level yang Diinginkan</label>
+                            <select id="level" name="level">
+                                <option value="">Pilih Level</option>
+                                <option value="beginner">Beginner</option>
+                                <option value="intermediate">Middle</option>
+                                <option value="advanced">Expert</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Pertanyaan atau Pesan</label>
+                            <textarea id="message" name="message" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">Kirim Pesan</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h4>CyberSec Academy</h4>
+                    <p>Platform pendidikan cybersecurity terkemuka yang menyediakan pelatihan komprehensif dari dasar hingga mahir.</p>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/csec.id" target="_blank_">
+                           <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://www.youtube.com/@thexhavematrix" target="_blank_">
+                           <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h4>Program Kami</h4>
+                    <ul class="footer-links">
+                        <li><a href="#specializations">Red Teaming</a></li>
+                        <li><a href="#specializations">Blue Teaming</a></li>
+                        <li><a href="#specializations">BlackHat Advanced</a></li>
+                        <li><a href="#">Corporate Training</a></li>
+                        <li><a href="#">Workshop & Seminar</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Link Cepat</h4>
+                    <ul class="footer-links">
+                        <li><a href="#home">Beranda</a></li>
+                        <li><a href="#specializations">Spesialisasi</a></li>
+                        <li><a href="#about">Tentang</a></li>
+                        <li><a href="#instructor">Instruktur</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Legal</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Syarat & Ketentuan</a></li>
+                        <li><a href="#">Kebijakan Privasi</a></li>
+                        <li><a href="#">Kebijakan Refund</a></li>
+                        <li><a href="#">Sertifikasi</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2024 CyberSec Academy</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        document.querySelector('.mobile-menu').addEventListener('click', function() {
+            document.querySelector('.nav-menu').classList.toggle('active');
+        });
+
+        // Specialization Tabs
+        const specTabs = document.querySelectorAll('.spec-tab');
+        const specContents = document.querySelectorAll('.spec-content');
+        
+        specTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Remove active class from all tabs and contents
+                specTabs.forEach(t => t.classList.remove('active'));
+                specContents.forEach(c => c.classList.remove('active'));
+                
+                // Add active class to clicked tab
+                tab.classList.add('active');
+                
+                // Show corresponding content
+                const tabId = tab.getAttribute('data-tab');
+                document.getElementById(`${tabId}-content`).classList.add('active');
+            });
+        });
+
+        // FAQ Accordion
+        const faqItems = document.querySelectorAll('.faq-item');
+        
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            
+            question.addEventListener('click', () => {
+                // Close all other items
+                faqItems.forEach(otherItem => {
+                    if (otherItem !== item) {
+                        otherItem.classList.remove('active');
+                    }
+                });
+                
+                // Toggle current item
+                item.classList.toggle('active');
+            });
+        });
+
+        // Smooth Scrolling for Anchor Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    document.querySelector('.nav-menu').classList.remove('active');
+                }
+            });
+        });
+
+        // Form Submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    // Ambil nilai dari form
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const phone = document.getElementById('phone').value;
+    const specialization = document.getElementById('specialization').value;
+    const level = document.getElementById('level').value;
+    const message = document.getElementById('message').value;
+    
+    // Format pesan untuk WhatsApp
+    const whatsappMessage = 
+        `Halo, saya tertarik dengan program CyberSec Academy!%0A%0A` +
+        `*Data Pendaftaran:*%0A` +
+        `Nama: ${name}%0A` +
+        `Email: ${email}%0A` +
+        `Telepon: ${phone}%0A` +
+        `Spesialisasi: ${specialization || 'Belum dipilih'}%0A` +
+        `Level: ${level || 'Belum dipilih'}%0A` +
+        `Pesan: ${message}%0A%0A` +
+        `Saya ingin informasi lebih lanjut tentang program ini.`;
+    
+    // Nomor WhatsApp Anda (format: 6281915030270 tanpa + dan spasi)
+    const phoneNumber = '6281915030270';
+    
+    // Redirect ke WhatsApp
+    window.open(`https://wa.me/${phoneNumber}?text=${whatsappMessage}`, '_blank');
+    
+    // Opsional: Reset form setelah redirect
+    this.reset();
+});
+
+        // Header Background on Scroll
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('header');
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Animate tier cards on scroll
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all tier cards
+        document.querySelectorAll('.tier-card').forEach(card => {
+            observer.observe(card);
+        });
+
+        // Animate elements on scroll
+        const animateOnScroll = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        // Observe elements to animate
+        document.querySelectorAll('.section-title, .about-text, .about-image, .instructor-info, .instructor-image').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            animateOnScroll.observe(el);
+        });
+    </script>
+</body>
+</html>
