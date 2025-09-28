@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -44,7 +43,7 @@
         }
         
         section {
-            padding: 80px 0;
+            padding: 60px 0;
         }
         
         /* Header Styles */
@@ -72,14 +71,14 @@
         }
         
         .logo {
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             font-weight: 700;
             display: flex;
             align-items: center;
         }
         
         .logo i {
-            margin-right: 10px;
+            margin-right: 8px;
             color: var(--light-blue);
         }
         
@@ -93,7 +92,7 @@
         }
         
         .nav-menu li {
-            margin-left: 2rem;
+            margin-left: 1.5rem;
         }
         
         .nav-menu a {
@@ -102,6 +101,7 @@
             font-weight: 500;
             transition: color 0.3s;
             position: relative;
+            font-size: 0.9rem;
         }
         
         .nav-menu a:after {
@@ -123,6 +123,7 @@
             display: none;
             font-size: 1.5rem;
             cursor: pointer;
+            color: var(--white);
         }
         
         /* Hero Section */
@@ -131,7 +132,7 @@
             background-size: cover;
             background-position: center;
             color: var(--white);
-            padding: 180px 0 100px;
+            padding: 150px 0 80px;
             text-align: center;
             position: relative;
             overflow: hidden;
@@ -144,28 +145,31 @@
         }
         
         .hero h1 {
-            font-size: 3rem;
+            font-size: 2.2rem;
             margin-bottom: 1rem;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
         }
         
         .hero p {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             max-width: 700px;
             margin: 0 auto 2rem;
+            padding: 0 15px;
         }
         
         .btn {
             display: inline-block;
             background: var(--white);
             color: var(--primary-blue);
-            padding: 12px 30px;
+            padding: 12px 25px;
             border-radius: 30px;
             text-decoration: none;
             font-weight: 600;
             transition: all 0.3s;
             border: 2px solid var(--white);
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            font-size: 0.9rem;
+            margin: 5px;
         }
         
         .btn:hover {
@@ -179,7 +183,6 @@
             background: transparent;
             color: var(--white);
             border: 2px solid var(--white);
-            margin-left: 15px;
         }
         
         .btn-secondary:hover {
@@ -189,7 +192,7 @@
         
         /* Specializations Section */
         .specializations {
-            padding: 100px 0;
+            padding: 80px 0;
             background-color: var(--gray-light);
         }
         
@@ -199,7 +202,7 @@
         }
         
         .section-title h2 {
-            font-size: 2.5rem;
+            font-size: 2rem;
             color: var(--primary-blue);
             margin-bottom: 1rem;
             position: relative;
@@ -222,6 +225,7 @@
             color: var(--gray);
             max-width: 700px;
             margin: 0 auto;
+            padding: 0 15px;
         }
         
         .spec-tabs {
@@ -233,7 +237,7 @@
         }
         
         .spec-tab {
-            padding: 12px 25px;
+            padding: 10px 20px;
             background: var(--white);
             border: 2px solid var(--secondary-blue);
             border-radius: 30px;
@@ -241,6 +245,7 @@
             font-weight: 600;
             color: var(--secondary-blue);
             transition: all 0.3s;
+            font-size: 0.9rem;
         }
         
         .spec-tab.active {
@@ -267,12 +272,18 @@
             max-width: 800px;
             margin-left: auto;
             margin-right: auto;
+            padding: 0 15px;
+        }
+        
+        .spec-description h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
         }
         
         .tier-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
         }
         
         .tier-card {
@@ -303,7 +314,7 @@
             right: 15px;
             padding: 5px 10px;
             border-radius: 20px;
-            font-size: 0.8rem;
+            font-size: 0.7rem;
             font-weight: 600;
             text-transform: uppercase;
         }
@@ -330,19 +341,19 @@
         }
         
         .tier-header h3 {
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             color: var(--primary-blue);
             margin-bottom: 0.5rem;
         }
         
         .tier-price {
-            font-size: 2rem;
+            font-size: 1.8rem;
             font-weight: 700;
             color: var(--secondary-blue);
         }
         
         .tier-price span {
-            font-size: 1rem;
+            font-size: 0.9rem;
             font-weight: normal;
             color: var(--gray);
         }
@@ -361,6 +372,7 @@
             border-bottom: 1px solid #f1f5f9;
             display: flex;
             align-items: center;
+            font-size: 0.9rem;
         }
         
         .tier-features li:before {
@@ -381,6 +393,7 @@
             text-decoration: none;
             font-weight: 600;
             transition: background 0.3s;
+            font-size: 0.9rem;
         }
         
         .tier-btn:hover {
@@ -389,14 +402,14 @@
         
         /* About Section */
         .about {
-            padding: 100px 0;
+            padding: 80px 0;
             background-color: var(--white);
         }
         
         .about-content {
             display: flex;
             align-items: center;
-            gap: 50px;
+            gap: 40px;
         }
         
         .about-text {
@@ -404,7 +417,7 @@
         }
         
         .about-text h3 {
-            font-size: 1.8rem;
+            font-size: 1.6rem;
             color: var(--primary-blue);
             margin-bottom: 1.5rem;
         }
@@ -426,14 +439,14 @@
         }
         
         .stat-number {
-            font-size: 2.5rem;
+            font-size: 2rem;
             font-weight: 700;
             color: var(--secondary-blue);
             display: block;
         }
         
         .stat-label {
-            font-size: 0.9rem;
+            font-size: 0.8rem;
             color: var(--gray);
         }
         
@@ -453,14 +466,14 @@
         
         /* Instructor Section */
         .instructor {
-            padding: 100px 0;
+            padding: 80px 0;
             background-color: var(--gray-light);
         }
         
         .instructor-content {
             display: flex;
             align-items: center;
-            gap: 50px;
+            gap: 40px;
         }
         
         .instructor-image {
@@ -469,8 +482,8 @@
         }
         
         .instructor-image img {
-            width: 300px;
-            height: 300px;
+            width: 250px;
+            height: 250px;
             border-radius: 50%;
             object-fit: cover;
             border: 5px solid var(--white);
@@ -482,7 +495,7 @@
         }
         
         .instructor-info h3 {
-            font-size: 2rem;
+            font-size: 1.7rem;
             color: var(--primary-blue);
             margin-bottom: 1rem;
         }
@@ -495,15 +508,15 @@
         .certifications {
             display: flex;
             flex-wrap: wrap;
-            gap: 15px;
+            gap: 10px;
             margin-top: 2rem;
         }
         
         .cert-badge {
             background: var(--white);
-            padding: 10px 15px;
+            padding: 8px 12px;
             border-radius: 5px;
-            font-size: 0.9rem;
+            font-size: 0.8rem;
             font-weight: 600;
             color: var(--primary-blue);
             box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
@@ -511,7 +524,7 @@
         
         /* FAQ Section */
         .faq {
-            padding: 100px 0;
+            padding: 80px 0;
             background-color: var(--white);
         }
         
@@ -533,7 +546,7 @@
         }
         
         .faq-question {
-            padding: 1.5rem;
+            padding: 1.2rem;
             background: var(--gray-light);
             cursor: pointer;
             display: flex;
@@ -541,6 +554,7 @@
             align-items: center;
             font-weight: 600;
             transition: background 0.3s;
+            font-size: 0.95rem;
         }
         
         .faq-question:hover {
@@ -548,27 +562,27 @@
         }
         
         .faq-answer {
-            padding: 0 1.5rem;
+            padding: 0 1.2rem;
             max-height: 0;
             overflow: hidden;
             transition: max-height 0.3s ease, padding 0.3s ease;
         }
         
         .faq-item.active .faq-answer {
-            padding: 1.5rem;
+            padding: 1.2rem;
             max-height: 500px;
         }
         
         /* Contact Section */
         .contact {
-            padding: 100px 0;
+            padding: 80px 0;
             background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 100%);
             color: var(--white);
         }
         
         .contact-container {
             display: flex;
-            gap: 50px;
+            gap: 40px;
         }
         
         .contact-info {
@@ -576,7 +590,7 @@
         }
         
         .contact-info h3 {
-            font-size: 2rem;
+            font-size: 1.7rem;
             margin-bottom: 1.5rem;
         }
         
@@ -596,37 +610,38 @@
         
         .contact-details li i {
             margin-right: 10px;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             width: 20px;
         }
         
         .contact-form {
             flex: 1;
             background: var(--white);
-            padding: 2rem;
+            padding: 1.8rem;
             border-radius: 10px;
             color: var(--gray-dark);
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
         }
         
         .form-group {
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.2rem;
         }
         
         .form-group label {
             display: block;
             margin-bottom: 0.5rem;
             font-weight: 600;
+            font-size: 0.9rem;
         }
         
         .form-group input,
         .form-group textarea,
         .form-group select {
             width: 100%;
-            padding: 12px;
+            padding: 10px;
             border: 1px solid #e2e8f0;
             border-radius: 5px;
-            font-size: 1rem;
+            font-size: 0.9rem;
             transition: border 0.3s;
         }
         
@@ -648,7 +663,7 @@
             border: none;
             padding: 12px 30px;
             border-radius: 5px;
-            font-size: 1rem;
+            font-size: 0.9rem;
             font-weight: 600;
             cursor: pointer;
             transition: background 0.3s;
@@ -663,7 +678,7 @@
         footer {
             background: var(--gray-dark);
             color: var(--white);
-            padding: 50px 0 20px;
+            padding: 40px 0 20px;
         }
         
         .footer-content {
@@ -680,7 +695,7 @@
         }
         
         .footer-column h4 {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             margin-bottom: 1.5rem;
             color: var(--light-blue);
         }
@@ -697,6 +712,7 @@
             color: #cbd5e1;
             text-decoration: none;
             transition: color 0.3s;
+            font-size: 0.9rem;
         }
         
         .footer-links a:hover {
@@ -711,12 +727,12 @@
         
         .social-links a {
             display: inline-block;
-            width: 40px;
-            height: 40px;
+            width: 35px;
+            height: 35px;
             background: var(--gray);
             border-radius: 50%;
             text-align: center;
-            line-height: 40px;
+            line-height: 35px;
             color: var(--white);
             transition: background 0.3s;
         }
@@ -730,7 +746,7 @@
             padding-top: 20px;
             border-top: 1px solid #475569;
             color: #94a3b8;
-            font-size: 0.9rem;
+            font-size: 0.8rem;
         }
         
         /* Animations */
@@ -765,16 +781,16 @@
             }
             
             .instructor-image img {
-                width: 250px;
-                height: 250px;
+                width: 220px;
+                height: 220px;
             }
             
             .hero h1 {
-                font-size: 2.5rem;
+                font-size: 2rem;
             }
             
             .tier-grid {
-                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
             }
         }
         
@@ -797,15 +813,30 @@
             }
             
             .nav-menu li {
-                margin: 0.5rem 0;
+                margin: 0.8rem 0;
             }
             
             .mobile-menu {
                 display: block;
             }
             
+            .hero {
+                padding: 130px 0 60px;
+            }
+            
             .hero h1 {
-                font-size: 2rem;
+                font-size: 1.8rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .btn {
+                width: 90%;
+                max-width: 280px;
+                margin: 8px auto;
+                display: block;
             }
             
             .spec-tabs {
@@ -814,13 +845,84 @@
             }
             
             .spec-tab {
-                width: 80%;
+                width: 90%;
                 text-align: center;
             }
             
             .about-stats {
                 flex-direction: column;
-                gap: 10px;
+                gap: 15px;
+            }
+            
+            .stat-number {
+                font-size: 1.8rem;
+            }
+            
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+            
+            .spec-description h3 {
+                font-size: 1.3rem;
+            }
+            
+            .instructor-info h3 {
+                font-size: 1.5rem;
+            }
+            
+            .contact-info h3 {
+                font-size: 1.5rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            section {
+                padding: 50px 0;
+            }
+            
+            .hero {
+                padding: 120px 0 50px;
+            }
+            
+            .hero h1 {
+                font-size: 1.6rem;
+            }
+            
+            .section-title h2 {
+                font-size: 1.6rem;
+            }
+            
+            .tier-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .tier-card {
+                margin: 0 auto;
+                max-width: 320px;
+            }
+            
+            .about-image img,
+            .instructor-image img {
+                width: 100%;
+                height: auto;
+            }
+            
+            .instructor-image img {
+                width: 200px;
+                height: 200px;
+            }
+            
+            .cert-badge {
+                flex: 1 0 100%;
+                text-align: center;
+            }
+            
+            .footer-column {
+                flex: 1 0 100%;
+            }
+            
+            .contact-form {
+                padding: 1.5rem;
             }
         }
     </style>
